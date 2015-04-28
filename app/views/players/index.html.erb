@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<center>
+  <h1>Players</h1>
+</center>
+
+<div id="main-container" class="container">
+  <div class="row">
+    <div id="table" class="col-xs-9">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @players.each do |player| %>
+            <tr>
+              <td><%= link_to player.tag, player %></td>
+              <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'New Player', new_player_path %>
+    </div>
+  </div> 
+</div>
+<br>
+
+
