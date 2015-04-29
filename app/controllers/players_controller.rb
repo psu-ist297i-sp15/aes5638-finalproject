@@ -61,17 +61,7 @@ class PlayersController < ApplicationController
     end
   end
 
-  def addwin
-    @player = Player.find(params[:id])
-    @player.wins.create
-    redirect_to(players_path)
-  end
 
-  def addlose
-    @player = Player.find(params[:id])
-    @player.loses.create
-    redirect_to(players_path)
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
