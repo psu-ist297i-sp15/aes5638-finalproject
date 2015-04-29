@@ -11,39 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428223612) do
-
-  create_table "loses", force: :cascade do |t|
-    t.integer  "player_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20150428215151) do
 
   create_table "players", force: :cascade do |t|
     t.string   "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "record_id"
-  end
-
-  add_index "players", ["record_id"], name: "index_players_on_record_id"
-
-  create_table "ratios", force: :cascade do |t|
-    t.integer  "player_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer  "player_id"
-    t.integer  "win"
-    t.integer  "lose"
-    t.float    "ratio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "wins", force: :cascade do |t|
+    t.string   "outcome"
     t.integer  "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
