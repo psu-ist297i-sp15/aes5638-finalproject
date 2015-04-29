@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+p=Player.create(tag: 'dmc')
+p.save
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'L')
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'L')
+p=Player.create(tag: 'aes')
+p.save
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'L')
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'W')
+p.records.create(outcome: 'W')
