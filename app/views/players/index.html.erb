@@ -15,7 +15,7 @@
         </thead>
 
         <tbody>
-          <% @players.each do |player| %>
+          <%= @players.each do |player| %>
             <tr>
               <td><%= link_to player.tag, player %></td>
               <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
