@@ -1,9 +1,46 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">PSU PR</a>
+    </div>
+  </div>
+</nav>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tag:</strong>
-  <%= @player.tag %>
-</p>
+<div id="main-container" class="container">
+<h1><%= @player.tag %></h1>
+  <p>Tournament results</p>
+  <div class="row">
+    <div id="table" class="col-xs-9">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+          	<th>Opponent</th>
+            <th>Outcome</th>
+            <th>Date</th>
+            <th>Tournament</th> 
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+        <tbody>
+          <% @player.records.each do |record| %>
+            <tr>
+           	  <td><%=record.opponent%></td>
+              <td><%=record.outcome%></td>
+              <td><%=record.date%></td>
+              <td><%=record.tournament%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+</div>
+<center>
+<%= link_to 'Edit', edit_player_path(@player), class: 'btn btn-default' %>
+<%= link_to 'Back', players_path, class: 'btn btn-default' %>
+<%= link_to 'New Match', new_record_path, remote: true, class: 'btn btn-default' %>
+<div id="record-form" style="display:none;"></div> 
+</center>

@@ -1,12 +1,19 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">PSU PR</a>
+    </div>
+  </div>
+</nav>
+
 <p id="notice"><%= notice %></p>
-<center>
-  <h1>Players</h1>
-</center>
+
 
 <div id="main-container" class="container">
+  <h1>Players</h1>
   <div class="row">
     <div id="table" class="col-xs-9">
-      <table class="table">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Tag</th>
@@ -15,7 +22,7 @@
         </thead>
 
         <tbody>
-          <%= @players.each do |player| %>
+          <% @players.order('tag').each do |player| %>
             <tr>
               <td><%= link_to player.tag, player %></td>
               <td><%= link_to 'Delete', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,7 +30,8 @@
           <% end %>
         </tbody>
       </table>
-      <%= link_to 'New Player', new_player_path %>
+      <%= link_to 'New Player', new_player_path, remote: true, class: 'btn btn-default' %>
+      <div id="task-form" style="display:none;"></div>
     </div>
   </div> 
 </div>

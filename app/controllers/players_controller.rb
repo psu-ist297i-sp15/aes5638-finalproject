@@ -42,7 +42,7 @@ class PlayersController < ApplicationController
   def update
     respond_to do |format|
       if @player.update(player_params)
-        format.html { redirect_to players_path, notice: 'Player was successfully updated.' }
+        format.html { redirect_to @player, notice: 'Player was successfully updated.' }
         format.json { render :show, status: :ok, location: @player }
       else
         format.html { render :edit }
