@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :players do
     member do
+      resources :records 
     end 
   end
 
-  resources :records 
 
   resources :topics
 

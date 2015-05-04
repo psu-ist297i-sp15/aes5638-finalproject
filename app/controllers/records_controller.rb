@@ -15,6 +15,7 @@ class RecordsController < ApplicationController
   # GET /records/new
   def new
     @record = Record.new
+    @player = Player.find_by_id(params[:id])
   end
 
   # GET /records/1/edit
@@ -69,6 +70,6 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:opponent, :outcome, :date, :tournament)
+      params.require(:record).permit(:opponent, :outcome, :date, :tournament, :player_id)
     end
 end
